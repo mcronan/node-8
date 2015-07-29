@@ -1,0 +1,16 @@
+extends layout
+
+block content
+	.container
+		h1 Applicants
+		ul#applications.list-unstyled
+			//- this 'data' needs to match
+			//- the object that is being rendered
+			//-  in the /applicants route
+			each key in data
+				li #{key.name}
+				a(href="/applicants/#{key._id}/delete")
+					input(type="submit" data-id="key_id" method="POST" name="delete" value="delete")
+
+
+
